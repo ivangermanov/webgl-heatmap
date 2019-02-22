@@ -2,12 +2,26 @@
 
 var WebGLHeatmap = require('./webgl-heatmap');
 var HeatmapTexture = require('./heatmap-texture');
-var fs = require('fs');
-var path = require('path');
-/* eslint-disable max-len */
-var vertexShaderBlit = fs.readFileSync(path.join(__dirname, './vertex-shader-blit.glsl'), 'utf-8');
-var fragmentShaderBlit = fs.readFileSync(path.join(__dirname, './fragment-shader-blit.glsl'), 'utf-8');
-/* eslint-enable max-len */
+const vertexShaderBlit = `\
+attribute vec4 position;
+varying vec2 texcoord;
+void main(){
+  texcoord = position.xy*0.5+0.5;
+  gl_Position = position;
+}\
+`;
+
+const fragmentShaderBlit = `\
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+  precision highp int;
+  precision highp float;
+#else
+  precision mediump int;
+  precision mediump float;
+#endif
+uniform sampler2D source;
+varying vec2 texcoord;\
+`;
 
 var __indexOf = [].indexOf || function(item) {
   for (var i = 0, l = this.length; i < l; i++) {
