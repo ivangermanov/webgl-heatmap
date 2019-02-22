@@ -1,12 +1,9 @@
 {
   "name": "webgl-heatmap",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A commonJS compatible version of pyalot's webgl-heatmap",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "budo ./example/main.js --live | bistre"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "null"
@@ -16,20 +13,9 @@
     "heatmap",
     "webgl-heatmap"
   ],
-  "author": "Victor Powell <vicapow@gmail.com>",
+  "author": "Jordan McCord <jordmccord@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "brfs": "^1.4.1",
-    "global": "^4.3.0"
-  },
-  "browserify": {
-    "transform": [
-      "brfs"
-    ]
-  },
-  "peerDependencies": {},
-  "devDependencies": {
-    "bistre": "^1.0.1",
-    "budo": "^8.0.4"
+    "global": "4.3.2"
   }
 }
